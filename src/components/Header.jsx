@@ -11,7 +11,7 @@ export default function Header() {
       <button>
         <img src={logo_img} alt="home" />
       </button>
-      <div class="hor-stretch"></div>
+      <div className="hor-stretch"></div>
       <button id="profile-button">
         <img src={placeholder} alt="profile picture" />
       </button>
