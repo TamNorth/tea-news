@@ -1,10 +1,18 @@
-import logo from "../assets/tea_news.svg";
+import logo_img from "../assets/tea_news.svg";
+import menu from "../assets/menu.svg";
+import placeholder from "../assets/profile_picture_placeholder.svg";
 
 export default function Header() {
   return (
     <header>
       <button>
-        <img src={logo} alt="home" />
+        <img src={menu} alt="menu" />
+      </button>
+      <button>
+        <img src={logo_img} alt="home" />
+      </button>
+      <button>
+        <img src={placeholder} alt="profile picture" />
       </button>
     </header>
   );
