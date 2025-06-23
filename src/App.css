@@ -1,6 +1,50 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  min-height: max-content;
+  height: 100vh;
   text-align: center;
+  --page-color: #ebe5e4;
+  --logo-color: #aabd8c;
+  --highlight-color-1: #1c3a13;
+  --highlight-color-2: #574f2a;
+  --warning-color: #ff715b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--page-color);
+}
+
+/* HEADER */
+
+header {
+  width: 100vw;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+header > button {
+  height: 2rem;
+  margin: 1rem;
+}
+
+#profile-button {
+  align-self: right;
+}
+
+/*  */
+
+/* GENERAL */
+
+.hor-stretch {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button > img {
+  height: 100%;
+  width: 100%;
 }
