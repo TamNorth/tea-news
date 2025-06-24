@@ -57,10 +57,10 @@ header > button {
   padding: 1rem;
 }
 
-.article-card-button {
+.element-wrapper {
   width: 95%;
   max-width: 30rem;
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
 }
 
 /* GENERAL CLASSES*/

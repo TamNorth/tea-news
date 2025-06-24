@@ -23,7 +23,7 @@ export default function Articles() {
       {articles.map((article) => {
         return (
           <button
-            className="article-card-button"
+            className="element-wrapper"
             key={article.article_id}
             onClick={() => {
               navigate(`/articles/${article.article_id}`);

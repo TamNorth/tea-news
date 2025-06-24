@@ -19,8 +19,12 @@ export default function Article() {
 
   return (
     <main>
-      {isLoading ? <Loading /> : <ArticleCard article={article} />}
-      <Comments articleId={article_id} />
+      <div className="element-wrapper">
+        {isLoading ? <Loading /> : <ArticleCard article={article} />}
+      </div>
+      <div className="element-wrapper">
+        <Comments articleId={article_id} />
+      </div>
     </main>
   );
 }
