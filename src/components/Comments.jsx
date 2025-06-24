@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../api";
 import Loading from "./Loading";
+import CommentCard from "./CommentCard";
 
 export default function Comments(articleId) {
   const [comments, setComments] = useState([]);
@@ -19,7 +20,7 @@ export default function Comments(articleId) {
     return (
       <ul className="element">
         {comments.map((comment) => {
-          return <li key={comment.comment_id}>{comment.body}</li>;
+          return <CommentCard comment={comment} />;
         })}
       </ul>
     );

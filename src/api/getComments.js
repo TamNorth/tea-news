@@ -6,7 +6,6 @@ export default function getComments({ articleId }) {
       return res.json();
     })
     .then(({ comments }) => {
-      console.log(comments);
       return comments;
     });
 }
