@@ -1,4 +1,5 @@
 import Header from "./Header";
 import Articles from "./Articles";
+import Article from "./Article";
 
-export { Header, Articles };
+export { Header, Articles, Article };

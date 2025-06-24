@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import {Header, Articles} from "./components"
+import { Header, Articles, Article } from "./components";
 
 function App() {
   return (
     <>
-    <Header />
-    <Articles />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<Article />} />
+      </Routes>
     </>
   );
 }

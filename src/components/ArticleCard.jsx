@@ -2,6 +2,7 @@ import { capitalise, getTimestampValues } from "../utils";
 
 export default function ArticleCard({ article }) {
   const { article_img_url, author, comment_count, title, votes } = article;
+  const body = article?.body;
   const topic = capitalise(article.topic);
   const { year, month, day, hour, minute } = getTimestampValues(
     article.created_at
@@ -17,8 +18,9 @@ export default function ArticleCard({ article }) {
           on {day} {month} {year}
         </p>
         <p className="topic-info">in {topic}</p>
-        <p>votes: {votes}</p>
-        <p>comments: {comment_count}</p>
+        <p className="article-body">{body ? body : ""}</p>
+        <p className="vote-count">votes: {votes}</p>
+        <p className="comment-count">comments: {comment_count}</p>
       </div>
     </button>
   );

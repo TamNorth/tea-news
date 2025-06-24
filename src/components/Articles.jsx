@@ -1,5 +1,5 @@
 import ArticleCard from "./ArticleCard";
-import { getArticles } from "../fetchers";
+import { getArticles } from "../api";
 import { useEffect, useState } from "react";
 
 export default function Articles() {
