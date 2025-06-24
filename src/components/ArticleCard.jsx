@@ -9,7 +9,7 @@ export default function ArticleCard({ article }) {
   );
 
   return (
-    <button id="article-card" className="element">
+    <section id="article-card" className="element">
       <img src={article_img_url} alt="article image" />
       <div>
         <h2>{title}</h2>
@@ -22,6 +22,6 @@ export default function ArticleCard({ article }) {
         <p className="vote-count">votes: {votes}</p>
         <p className="comment-count">comments: {comment_count}</p>
       </div>
-    </button>
+    </section>
   );
 }

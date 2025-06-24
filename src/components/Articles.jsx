@@ -1,9 +1,11 @@
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getArticles().then((response) => {
@@ -19,7 +21,17 @@ export default function Articles() {
         <button className="element-highlight-1">Topic: </button>
       </section>
       {articles.map((article) => {
-        return <ArticleCard key={article.article_id} article={article} />;
+        return (
+          <button
+            className="article-card-button"
+            key={article.article_id}
+            onClick={() => {
+              navigate(`/articles/${article.article_id}`);
+            }}
+          >
+            <ArticleCard article={article} />
+          </button>
+        );
       })}
     </main>
   );
