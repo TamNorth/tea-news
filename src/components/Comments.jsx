@@ -20,7 +20,7 @@ export default function Comments(articleId) {
     return (
       <ul className="element">
         {comments.map((comment) => {
-          return <CommentCard comment={comment} />;
+          return <CommentCard key={comment.comment_id} comment={comment} />;
         })}
       </ul>
     );
