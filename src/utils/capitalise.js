@@ -1,4 +1,4 @@
-export default function capitalise(string) {
+function capitalise(string) {
   if (typeof string !== "string" || !string.length) {
     return "";
   }
@@ -12,3 +12,7 @@ export default function capitalise(string) {
     })
     .join(" ");
 }
+
+// module.exports = capitalise;
+
+export default capitalise;

@@ -4,6 +4,9 @@ export default function ArticleCard({ article }) {
   const { article_img_url, author, comment_count, created_at, title, votes } =
     article;
 
+  console.dir(created_at);
+  console.log(typeof created_at);
+
   const topic = capitalise(article.topic);
 
   return (
