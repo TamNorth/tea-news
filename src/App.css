@@ -63,6 +63,13 @@ header > button {
   margin: 1rem auto 0 auto;
 }
 
+/* LOADING */
+
+#loading-img {
+  margin: 2rem auto;
+  height: 2rem;
+}
+
 /* GENERAL CLASSES*/
 
 .hor-stretch {
