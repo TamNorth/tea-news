@@ -1,13 +1,11 @@
-import { capitalise } from "../utils";
+import { capitalise, getTimestampValues } from "../utils";
 
 export default function ArticleCard({ article }) {
-  const { article_img_url, author, comment_count, created_at, title, votes } =
-    article;
-
-  console.dir(created_at);
-  console.log(typeof created_at);
-
+  const { article_img_url, author, comment_count, title, votes } = article;
   const topic = capitalise(article.topic);
+  const { year, month, day, hour, minute } = getTimestampValues(
+    article.created_at
+  );
 
   return (
     <button id="article-card" className="element">
@@ -15,7 +13,9 @@ export default function ArticleCard({ article }) {
       <div>
         <h2>{title}</h2>
         <p className="author-info">by {author}</p>
-        <p className="timestamp">on {created_at}</p>
+        <p className="timestamp">
+          on {day} {month} {year}
+        </p>
         <p className="topic-info">in {topic}</p>
         <p>votes: {votes}</p>
         <p>comments: {comment_count}</p>
