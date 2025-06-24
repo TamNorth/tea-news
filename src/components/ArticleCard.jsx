@@ -1,13 +1,10 @@
+import { capitalise } from "../utils";
+
 export default function ArticleCard({ article }) {
-  const {
-    article_img_url,
-    author,
-    comment_count,
-    created_at,
-    title,
-    topic,
-    votes,
-  } = article;
+  const { article_img_url, author, comment_count, created_at, title, votes } =
+    article;
+
+  const topic = capitalise(article.topic);
 
   return (
     <button id="article-card" className="element">
