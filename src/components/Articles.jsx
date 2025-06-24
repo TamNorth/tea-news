@@ -1,4 +1,16 @@
+import ArticleCard from "./ArticleCard";
+import { getArticles } from "../fetchers";
+import { useEffect, useState } from "react";
+
 export default function Articles() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    getArticles().then((response) => {
+      setArticles(response);
+    });
+  }, []);
+
   return (
     <main>
       <section id="sort-and-filter">
@@ -6,15 +18,10 @@ export default function Articles() {
         <button className="element">Order</button>
         <button className="element-highlight-2">Topic: </button>
       </section>
-      <button id="article-card" className="element">
-        <h2>Article title</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel
-          provident, modi facilis impedit ipsam veniam perferendis? Voluptatum
-          voluptates impedit saepe sint quod, dignissimos dolorum corporis modi,
-          perspiciatis, obcaecati dolore tempora.
-        </p>
-      </button>
+      {articles.map((article) => {
+        return <ArticleCard key={article.article_id} article={article} />;
+      })}
+      {/* <ArticleCard article={articles[0]} /> */}
     </main>
   );
 }
