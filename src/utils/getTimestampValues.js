@@ -1,4 +1,7 @@
 function getTimestampValues(timestamp) {
+  if (!timestamp) {
+    return { year: "", month: "", day: "", hour: "", minute: "", second: "" };
+  }
   const timeValues = timestamp.split(/[-T\:\.]/);
   const [year, monthNum, day, hour, minute, second] = timeValues;
   const monthLookup = {

@@ -3,7 +3,7 @@ export default function getArticles(article_id) {
     .then((res) => {
       return res.json();
     })
-    .then((article) => {
+    .then(({ article }) => {
       return article;
     });
 }
