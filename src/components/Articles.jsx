@@ -21,7 +21,6 @@ export default function Articles() {
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
-      {/* <ArticleCard article={articles[0]} /> */}
     </main>
   );
 }

@@ -1,7 +1,8 @@
 #root {
   margin: 0 auto;
-  min-height: max-content;
-  height: 100vh;
+  /* min-height: max-content;
+  height: 100vh; */
+  height: max-content;
   text-align: center;
   --page-color: #ebe5e4;
   --logo-color: #aabd8c;
