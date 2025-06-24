@@ -1,7 +1,6 @@
 import { getTimestampValues } from "../utils";
 
 export default function CommentCard({ comment }) {
-  console.log(comment);
   const { author, body, created_at, votes } = comment;
   const { year, month, day, hour, minute } = getTimestampValues(created_at);
 

@@ -1,12 +1,11 @@
 import { capitalise, getTimestampValues } from "../utils";
 
 export default function ArticleCard({ article }) {
-  const { article_img_url, author, comment_count, title, votes } = article;
+  const { article_img_url, author, comment_count, created_at, title, votes } =
+    article;
   const body = article?.body;
   const topic = capitalise(article.topic);
-  const { year, month, day, hour, minute } = getTimestampValues(
-    article.created_at
-  );
+  const { year, month, day, hour, minute } = getTimestampValues(created_at);
 
   return (
     <section id="article-card" className="element">
