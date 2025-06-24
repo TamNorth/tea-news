@@ -3,6 +3,7 @@ import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 import { getArticle } from "../api";
 import Loading from "./Loading";
+import Comments from "./Comments";
 
 export default function Article() {
   const { article_id } = useParams();
@@ -17,6 +18,9 @@ export default function Article() {
   }, []);
 
   return (
-    <main>{isLoading ? <Loading /> : <ArticleCard article={article} />}</main>
+    <main>
+      {isLoading ? <Loading /> : <ArticleCard article={article} />}
+      <Comments articleId={article_id} />
+    </main>
   );
 }
