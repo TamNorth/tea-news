@@ -5,9 +5,9 @@
   height: max-content;
   text-align: center;
   --page-color: #ebe5e4;
-  --logo-color: #aabd8c;
-  --highlight-color-1: #1c3a13;
+  --highlight-color-1: #aabd8c;
   --highlight-color-2: #574f2a;
+  --highlight-color-3: #1c3a13;
   --warning-color: #ff715b;
   background-color: var(--page-color);
 }
@@ -65,7 +65,8 @@ header > button {
 
 .element,
 .element-highlight-1,
-.element-highlight-2 {
+.element-highlight-2,
+.element-highlight-3 {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -76,11 +77,15 @@ header > button {
 
 .element-highlight-1 {
   background-color: var(--highlight-color-1);
-  color: var(--page-color);
 }
 
 .element-highlight-2 {
   background-color: var(--highlight-color-2);
+  color: var(--page-color);
+}
+
+.element-highlight-3 {
+  background-color: var(--highlight-color-3);
   color: var(--page-color);
 }
 

@@ -16,7 +16,7 @@ export default function Articles() {
       <section id="sort-and-filter">
         <button className="element">Sort by</button>
         <button className="element">Order</button>
-        <button className="element-highlight-2">Topic: </button>
+        <button className="element-highlight-1">Topic: </button>
       </section>
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;

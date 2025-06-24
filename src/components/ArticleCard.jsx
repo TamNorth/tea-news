@@ -11,9 +11,9 @@ export default function ArticleCard({ article }) {
       <img src={article_img_url} alt="article image" />
       <div>
         <h2>{title}</h2>
-        <p>by {author}</p>
-        <p>on {created_at}</p>
-        <p>in {topic}</p>
+        <p className="author-info">by {author}</p>
+        <p className="timestamp">on {created_at}</p>
+        <p className="topic-info">in {topic}</p>
         <p>votes: {votes}</p>
         <p>comments: {comment_count}</p>
       </div>
