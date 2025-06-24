@@ -18,11 +18,14 @@ export default function Comments(articleId) {
     return <Loading />;
   } else {
     return (
-      <ul className="element">
-        {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
-        })}
-      </ul>
+      <section id="comments" className="element">
+        <h2>Comments</h2>
+        <ul>
+          {comments.map((comment) => {
+            return <CommentCard key={comment.comment_id} comment={comment} />;
+          })}
+        </ul>
+      </section>
     );
   }
 }
