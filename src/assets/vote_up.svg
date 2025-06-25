@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="57.285873mm"
+   height="57.285873mm"
+   viewBox="0 0 57.285873 57.285873"
+   version="1.1"
+   id="svg14453"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="vote_up.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14455"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.1037318"
+     inkscape:cx="66.371715"
+     inkscape:cy="106.16252"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs14450" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-65.469574,-117.98164)">
+    <path
+       sodipodi:type="star"
+       style="fill:#808080;stroke:#808080;stroke-width:26.4567;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1525"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="108.25677"
+       sodipodi:cy="108.25677"
+       sodipodi:r1="109.65022"
+       sodipodi:r2="54.825111"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 203.21665,163.08188 -189.919761,0 94.959881,-164.4753355 z"
+       transform="matrix(0.26458333,0,0,0.26458333,65.469574,125.39001)"
+       inkscape:transform-center-y="-7.2529057" />
+  </g>
+</svg>

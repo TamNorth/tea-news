@@ -1,8 +1,16 @@
 import { capitalise, getTimestampValues } from "../utils";
+import VotePanel from "./VotePanel";
 
-export default function ArticleCard({ article }) {
-  const { article_img_url, author, comment_count, created_at, title, votes } =
-    article;
+export default function ArticleCard({ article, canVote }) {
+  const {
+    article_id,
+    article_img_url,
+    author,
+    comment_count,
+    created_at,
+    title,
+    votes,
+  } = article;
   const body = article?.body;
   const topic = capitalise(article.topic);
   const { year, month, day, hour, minute } = getTimestampValues(created_at);
@@ -20,6 +28,7 @@ export default function ArticleCard({ article }) {
         <p className="article-body">{body ? body : ""}</p>
         <p className="vote-count">votes: {votes}</p>
         <p className="comment-count">comments: {comment_count}</p>
+        {canVote ? <VotePanel article_id={article_id} /> : <></>}
       </div>
     </section>
   );

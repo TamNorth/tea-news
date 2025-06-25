@@ -20,8 +20,11 @@ export default function Article() {
   return (
     <main>
       <div className="element-wrapper">
-        {isLoading ? <Loading /> : <Loading />}
-        {/* <ArticleCard article={article} />} */}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <ArticleCard article={article} canVote={true} />
+        )}
       </div>
       <div className="element-wrapper">
         <Comments articleId={article_id} />
