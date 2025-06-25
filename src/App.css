@@ -20,10 +20,18 @@
   padding: 0;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
 }
 
 main {
-  width: 100vw;
+  width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 section > img,
@@ -55,12 +63,47 @@ header {
   position: fixed;
   z-index: 3;
   top: 0;
-  width: 100vw;
+  width: 100%;
   margin-bottom: 1rem;
   display: flex;
+  align-items: center;
   background-color: var(--page-color);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  overflow: hidden;
+}
+
+#home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.3rem 0;
+}
+
+h1 {
+  font-family: "Amarante", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  display: inline-block;
+  line-height: 1.8rem;
+  width: max-content;
+  text-align: left;
+}
+
+#header-1 {
+  font-family: "Amarante", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  white-space: pre;
+  display: inline;
+  margin-left: 2rem;
+}
+
+h2 {
+  font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 header > button {
@@ -89,6 +132,9 @@ header > button {
   width: 95%;
   max-width: 30rem;
   margin: 1rem auto 0 auto;
+  position: relative;
+  top: 4rem;
+  z-index: 2;
 }
 
 /* ARTICLE */
@@ -203,9 +249,9 @@ header > button {
 .element-highlight-1,
 .element-highlight-2,
 .element-highlight-3 {
-  position: relative;
+  /* position: relative;
   top: 5rem;
-  z-index: 2;
+  z-index: 2; */
 }
 
 .element,
@@ -276,7 +322,7 @@ header > button {
   bottom: 0;
   left: 0;
   right: 0;
-  box-shadow: rgba(0, 0, 0, 0.5) 300px 50px 200px -200px inset,
-    rgba(0, 0, 0, 0.5) -300px 50px 200px -200px inset;
+  box-shadow: rgba(0, 0, 0, 0.5) 30vw 5vw 20vw -20vw inset,
+    rgba(0, 0, 0, 0.5) -30vw 5vw 20vw -20vw inset;
   pointer-events: none;
 }

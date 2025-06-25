@@ -15,7 +15,7 @@ export default function Articles() {
 
   return (
     <main>
-      <section id="sort-and-filter">
+      <section id="sort-and-filter" className="element-wrapper">
         <button className="element">Sort by</button>
         <button className="element">Order</button>
         <button className="element-highlight-1">Topic: </button>

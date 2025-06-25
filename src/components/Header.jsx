@@ -13,11 +13,14 @@ export default function Header() {
           <img src={menu} alt="menu" />
         </button>
         <button
+          id="home-button"
           onClick={() => {
             navigate(`/`);
           }}
         >
           <img src={logo_img} alt="home" />
+          <span id="header-1">The </span>
+          <h1>Daily Tea</h1>
         </button>
         <div className="hor-stretch"></div>
         <button id="profile-button">
