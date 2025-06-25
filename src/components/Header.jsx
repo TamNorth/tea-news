@@ -25,7 +25,7 @@ export default function Header() {
         </button>
       </header>
 
-      <div id="background" />
+      <div id="background"></div>
     </>
   );
 }
