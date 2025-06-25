@@ -6,16 +6,17 @@ export default function CommentAdd({ article_id }) {
   const [newComments, setNewComments] = useState([]);
   const [isPosting, setIsPosting] = useState(false);
   const [commentError, setCommentError] = useState(false);
+  const [commentInput, setCommentInput] = useState("");
 
-  function handleNewComment(e, article_id) {
+  function handleNewComment(e, commentInput, article_id) {
     e.preventDefault();
     setIsPosting(true);
-    const body = e.target[0].value;
-    postComment({ article_id, username: "jessjelly", body })
+    postComment({ article_id, username: "jessjelly", body: commentInput })
       .then((newComment) => {
         setIsPosting(false);
         setCommentError(false);
         setNewComments([newComment, ...newComments]);
+        setCommentInput("");
       })
       .catch(() => {
         setIsPosting(false);
@@ -28,9 +29,17 @@ export default function CommentAdd({ article_id }) {
       <form
         id="new-comment"
         className="misc-sub-element"
-        onSubmit={(e) => handleNewComment(e, article_id)}
+        onSubmit={(e) => handleNewComment(e, commentInput, article_id)}
       >
-        <input type="text" minLength={10}></input>
+        <input
+          type="text"
+          minLength={10}
+          placeholder="Say something..."
+          onInput={(e) => {
+            setCommentInput(e.target.value);
+          }}
+          value={commentInput}
+        ></input>
         {isPosting ? (
           <span>Working...</span>
         ) : (

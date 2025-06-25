@@ -186,6 +186,11 @@ header > button {
   height: 2rem;
 }
 
+#new-comment > input,
+#new-comment > button {
+  margin-bottom: 1rem;
+}
+
 /* POST CONTAINER */
 
 .post-container-article,
