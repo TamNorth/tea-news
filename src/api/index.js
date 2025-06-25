@@ -40,9 +40,23 @@ export function getArticles() {
   });
 }
 
-export function getComments({ article_id }) {
+export function getComments(article_id) {
   const path = `articles/${article_id}/comments`;
   return makeFetch(path).then(({ comments }) => {
     return comments;
+  });
+}
+
+export function postComment({ article_id, username, body }) {
+  const path = `articles/${article_id}/comments`;
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, body }),
+  };
+  return makeFetch(path, options).then(({ comment }) => {
+    return comment;
   });
 }

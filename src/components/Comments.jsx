@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import CommentCard from "./CommentCard";
 import CommentAdd from "./CommentAdd";
 
-export default function Comments(article_id) {
+export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +21,7 @@ export default function Comments(article_id) {
     return (
       <section id="comments" className="element">
         <h2>Comments</h2>
-        <CommentAdd />
+        <CommentAdd article_id={article_id} />
         <ul>
           {comments.map((comment) => {
             return <CommentCard key={comment.comment_id} comment={comment} />;
