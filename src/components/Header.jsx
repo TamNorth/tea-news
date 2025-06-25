@@ -2,6 +2,7 @@ import logo_img from "../assets/tea_news.svg";
 import menu from "../assets/menu.svg";
 import placeholder from "../assets/profile_picture_placeholder.svg";
 import { useNavigate } from "react-router-dom";
+import { MenuIcon } from "./svg";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ export default function Header() {
     <>
       <header>
         <button>
-          <img src={menu} alt="menu" />
+          {/* <img src={menu} alt="menu" /> */}
+          <MenuIcon />
         </button>
         <button
           id="home-button"
