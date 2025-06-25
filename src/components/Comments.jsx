@@ -3,12 +3,12 @@ import { getComments } from "../api";
 import Loading from "./Loading";
 import CommentCard from "./CommentCard";
 
-export default function Comments(articleId) {
+export default function Comments(article_id) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getComments(articleId).then((comments) => {
+    getComments(article_id).then((comments) => {
       setComments(comments);
       setIsLoading(false);
     });

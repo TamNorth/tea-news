@@ -27,7 +27,7 @@ export default function Article() {
         )}
       </div>
       <div className="element-wrapper">
-        <Comments articleId={article_id} />
+        <Comments article_id={article_id} />
       </div>
     </main>
   );

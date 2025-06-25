@@ -1,8 +1,7 @@
-import { patchArticle } from "../api/api";
+import { patchArticle } from "../api";
 import { VoteIcon } from "./svg";
 
 export default function VotePanel({ article_id }) {
-  console.log(article_id);
   return (
     <section id="voting-panel">
       <button
