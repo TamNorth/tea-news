@@ -40,6 +40,13 @@ svg {
   width: auto;
 }
 
+input {
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px inset;
+}
+
 /* HEADER */
 
 header {
@@ -66,6 +73,10 @@ header > button {
   /* width: 95%; */
   /* margin: 1rem; */
   padding: 1rem;
+}
+
+#article-card > img {
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .element-wrapper {

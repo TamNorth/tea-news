@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getComments } from "../api";
 import Loading from "./Loading";
 import CommentCard from "./CommentCard";
+import CommentAdd from "./CommentAdd";
 
 export default function Comments(article_id) {
   const [comments, setComments] = useState([]);
@@ -20,6 +21,7 @@ export default function Comments(article_id) {
     return (
       <section id="comments" className="element">
         <h2>Comments</h2>
+        <CommentAdd />
         <ul>
           {comments.map((comment) => {
             return <CommentCard key={comment.comment_id} comment={comment} />;
