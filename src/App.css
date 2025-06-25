@@ -206,6 +206,15 @@ header > button {
   position: relative;
   top: 5rem;
   z-index: 2;
+}
+
+.element,
+.element-highlight-1,
+.element-highlight-2,
+.element-highlight-3,
+.highlight-1,
+.highlight-2,
+.highlight-3 {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -223,16 +232,19 @@ header > button {
   padding: 0.5rem;
 }
 
-.element-highlight-1 {
+.element-highlight-1,
+.highlight-1 {
   background-color: var(--highlight-color-1);
 }
 
-.element-highlight-2 {
+.element-highlight-2,
+.highlight-2 {
   background-color: var(--highlight-color-2);
   color: var(--page-color);
 }
 
-.element-highlight-3 {
+.element-highlight-3,
+.highlight-3 {
   background-color: var(--highlight-color-3);
   color: var(--page-color);
 }

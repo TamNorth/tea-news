@@ -34,7 +34,7 @@ export default function CommentAdd({ article_id }) {
         {isPosting ? (
           <span>Working...</span>
         ) : (
-          <button className="element-highlight-1">Comment</button>
+          <button className="highlight-1">Comment</button>
         )}
       </form>
       {commentError ? (
