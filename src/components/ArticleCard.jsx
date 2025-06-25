@@ -20,14 +20,16 @@ export default function ArticleCard({ article, canVote }) {
       <img src={article_img_url} alt="article image" />
       <div>
         <h2>{title}</h2>
-        <p className="author-info">by {author}</p>
-        <p className="timestamp">
-          on {day} {month} {year}
-        </p>
-        <p className="topic-info">in {topic}</p>
-        <p className="article-body">{body ? body : ""}</p>
-        <p className="comment-count">comments: {comment_count}</p>
-        {<VotePanel article_id={article_id} votes={votes} canVote={canVote} />}
+        <div className="post-container-article">
+          <p className="author-info">{author}</p>
+          <p className="timestamp">
+            {day} {month} {year}
+          </p>
+          <p className="topic-info">in {topic}</p>
+          <p className="article-body">{body ? body : ""}</p>
+          <p className="comment-count">{comment_count} comments</p>
+          <VotePanel article_id={article_id} votes={votes} canVote={canVote} />
+        </div>
       </div>
     </section>
   );

@@ -88,21 +88,31 @@ header > button {
 
 /* ARTICLE */
 
-#voting-panel {
+.voting-panel-article,
+.voting-panel-comment {
   height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
 }
 
-#voting-panel > button {
+#voting-panel-comment {
+  height: 1rem;
+}
+
+.voting-panel-article > button,
+.voting-panel-comment > button {
   height: 100%;
 }
 
-#vote-count {
+#vote-count-article,
+#vote-count-comment {
   font-weight: bold;
   padding: 0 1rem;
+}
+
+#vote-count-comment {
+  padding: 0 0.5rem;
 }
 
 /* COMMENTS */
@@ -116,6 +126,65 @@ header > button {
 #loading-img {
   margin: 2rem auto;
   height: 2rem;
+}
+
+/* POST CONTAINER */
+
+.post-container-article,
+.post-container-comment {
+  display: grid;
+  grid-template: auto auto auto auto / 50% 50%;
+  row-gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.post-container-article > .topic-info {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2;
+  text-align: center;
+  font-style: italic;
+}
+
+.post-container-article > .author-info,
+.post-container-comment > .author-info {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.post-container-article > .timestamp,
+.post-container-comment > .timestamp {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.post-container-article > .article-body,
+.post-container-comment > .comment-body {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 2;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.post-container-article > .voting-panel-article {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.post-container-comment > .voting-panel-comment {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 2;
+  align-self: center;
+}
+
+.post-container-article > .comment-count {
+  grid-row: 4 / span 1;
+  grid-column: 2 / span 1;
+  align-self: center;
+  font-size: 0.85rem;
 }
 
 /* GENERAL CLASSES*/
@@ -137,7 +206,7 @@ header > button {
   padding: 0.5rem;
 }
 
-.sub-element {
+.post-container-comment {
   list-style-type: none;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   margin: 0 0.5rem;

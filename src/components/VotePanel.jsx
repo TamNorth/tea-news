@@ -2,10 +2,16 @@ import { useState } from "react";
 import { patchArticle } from "../api";
 import { VoteIcon } from "./svg";
 
-export default function VotePanel({ article_id, votes, canVote }) {
+export default function VotePanel({
+  article_id = null,
+  comment_id = null,
+  votes,
+  canVote,
+}) {
   const [displayedVotes, setDisplayedVotes] = useState(votes);
   const [voteHistory, setVoteHistory] = useState(0);
   const [voteError, setVoteError] = useState(false);
+  const elementType = comment_id ? "comment" : article_id ? "article" : null;
 
   function handleVote(article_id, vote) {
     function castVote(vote) {
@@ -59,9 +65,9 @@ export default function VotePanel({ article_id, votes, canVote }) {
 
   return (
     <>
-      <section id="voting-panel">
+      <section className={`voting-panel-${elementType}`}>
         <VoteButton canVote={canVote} amount={1} />
-        <span id="vote-count">{displayedVotes}</span>
+        <span id={`vote-count-${elementType}`}>{displayedVotes}</span>
         <VoteButton canVote={canVote} amount={-1} />
       </section>
       {voteError ? <p class="warning">please try again</p> : <></>}
