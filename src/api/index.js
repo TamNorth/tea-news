@@ -1,8 +1,7 @@
-const baseUrl = "https://nc-news-gwte.onrender.com/api/";
-
 function makeFetch(path, options = undefined) {
   // console.log(`${baseUrl}${path}`);
   // console.log(options);
+  const baseUrl = "https://nc-news-gwte.onrender.com/api/";
   return fetch(`${baseUrl}${path}`, options)
     .then((res) => {
       return res.json();

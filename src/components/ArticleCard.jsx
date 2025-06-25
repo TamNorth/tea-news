@@ -26,9 +26,8 @@ export default function ArticleCard({ article, canVote }) {
         </p>
         <p className="topic-info">in {topic}</p>
         <p className="article-body">{body ? body : ""}</p>
-        <p className="vote-count">votes: {votes}</p>
         <p className="comment-count">comments: {comment_count}</p>
-        {canVote ? <VotePanel article_id={article_id} /> : <></>}
+        {canVote ? <VotePanel article_id={article_id} votes={votes} /> : <></>}
       </div>
     </section>
   );
