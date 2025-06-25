@@ -143,3 +143,11 @@ header > button {
 .warning {
   background-color: var(--warning-color);
 }
+
+.disabled {
+  fill: lightgrey;
+}
+
+.activated {
+  fill: var(--highlight-color-3);
+}

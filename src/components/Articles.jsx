@@ -29,7 +29,7 @@ export default function Articles() {
               navigate(`/articles/${article.article_id}`);
             }}
           >
-            <ArticleCard article={article} />
+            <ArticleCard article={article} canVote={false} />
           </button>
         );
       })}
