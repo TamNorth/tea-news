@@ -25,12 +25,16 @@ export default function CommentAdd({ article_id }) {
 
   return (
     <>
-      <form id="new-comment" onSubmit={(e) => handleNewComment(e, article_id)}>
+      <form
+        id="new-comment"
+        className="misc-sub-element"
+        onSubmit={(e) => handleNewComment(e, article_id)}
+      >
         <input type="text" minLength={10}></input>
         {isPosting ? (
           <span>Working...</span>
         ) : (
-          <button className="element-highlight-1">Submit</button>
+          <button className="element-highlight-1">Comment</button>
         )}
       </form>
       {commentError ? (

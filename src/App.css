@@ -3,6 +3,7 @@
   /* min-height: max-content;
   height: 100vh; */
   height: max-content;
+  min-height: 100vh;
   text-align: center;
   --page-color: #ebe5e4;
   --highlight-color-1: #aabd8c;
@@ -51,9 +52,12 @@ input {
 /* HEADER */
 
 header {
+  position: fixed;
+  top: 0;
   width: 100vw;
   margin-bottom: 1rem;
   display: flex;
+  background-color: var(--page-color);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -118,7 +122,7 @@ header > button {
 /* COMMENTS */
 
 #new-comment {
-  margin-top: 0.5rem;
+  margin: 0.5rem;
 }
 
 /* LOADING */
@@ -206,7 +210,8 @@ header > button {
   padding: 0.5rem;
 }
 
-.post-container-comment {
+.post-container-comment,
+.misc-sub-element {
   list-style-type: none;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   margin: 0 0.5rem;
@@ -241,4 +246,31 @@ header > button {
 
 .activated {
   fill: var(--highlight-color-3);
+}
+
+#background {
+  --background-scale: 100px;
+  position: fixed;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 4rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 0.5) 300px 50px 200px -200px inset,
+    rgba(0, 0, 0, 0.5) -300px 50px 200px -200px inset;
+  pointer-events: none;
+}
+
+#background-right {
+  --background-scale: 100px;
+  position: fixed;
+  display: block;
+  height: 100%;
+  width: 50%;
+  top: 4rem;
+  bottom: 0;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 1) -300px 50px 200px -200px inset;
 }
