@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-export default function Order({ setDisplay, searchParams, setSearchParams }) {
+export default function Order({
+  setDisplay,
+  searchParams,
+  setSearchParams,
+  setIsLoading,
+}) {
   const [isDescending, setIsDescending] = useState(true);
 
   useEffect(() => {
@@ -10,6 +15,7 @@ export default function Order({ setDisplay, searchParams, setSearchParams }) {
   }, [isDescending]);
 
   function toggleOrdering() {
+    setIsLoading(true);
     setIsDescending(!isDescending);
     setDisplay(null);
   }

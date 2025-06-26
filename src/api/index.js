@@ -37,15 +37,17 @@ export function getArticle(article_id) {
 export function getArticles(topicSlug = null, searchParams = null) {
   let path = "articles";
   let queryJoiner = "?";
-  [
-    topicSlug ? `topic=${topicSlug}` : null,
-    searchParams.get("sort_by")
-      ? `sort_by=${searchParams.get("sort_by")}`
-      : null,
-    searchParams.get("order") ? `order=${searchParams.get("order")}` : null,
-  ].forEach((param) => {
-    if (param) {
-      path += `${queryJoiner}${param}`;
+  const topicQuery = topicSlug ? `topic=${topicSlug}` : null;
+  const orderQuery = searchParams.get("order")
+    ? `order=${searchParams.get("order")}`
+    : null;
+  const sortByQuery = searchParams.get("sort_by")
+    ? `sort_by=${searchParams.get("sort_by")}`
+    : null;
+
+  [topicQuery, sortByQuery, orderQuery].forEach((query) => {
+    if (query) {
+      path += `${queryJoiner}${query}`;
       queryJoiner = "&";
     }
   });

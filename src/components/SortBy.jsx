@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function SortBy({
   display,
   setDisplay,
   searchParams,
   setSearchParams,
+  setIsLoading,
 }) {
   const [sortingParam, setSortingParam] = useState("date");
   const sortingParams = {
@@ -14,13 +14,17 @@ export default function SortBy({
     votes: "votes",
   };
 
-  function selectSort(e, sortingParam) {
-    e.preventDefault();
-    setDisplay(null);
-    setSortingParam(sortingParam);
+  useEffect(() => {
     const sortingQuery = sortingParams[sortingParam];
     searchParams.set("sort_by", sortingQuery);
     setSearchParams(searchParams);
+  }, [sortingParam]);
+
+  function selectSort(e, sortingParam) {
+    setIsLoading(true);
+    e.preventDefault();
+    setDisplay(null);
+    setSortingParam(sortingParam);
   }
 
   function SortByList() {

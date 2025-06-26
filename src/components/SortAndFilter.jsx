@@ -7,6 +7,7 @@ export default function SortAndFilter({
   topic,
   searchParams,
   setSearchParams,
+  setIsLoading,
 }) {
   const [display, setDisplay] = useState(null);
 
@@ -17,17 +18,20 @@ export default function SortAndFilter({
         setDisplay={setDisplay}
         searchParams={searchParams}
         setSearchParams={setSearchParams}
+        setIsLoading={setIsLoading}
       />
       <Order
         setDisplay={setDisplay}
         searchParams={searchParams}
         setSearchParams={setSearchParams}
+        setIsLoading={setIsLoading}
       />
       <Topics
         topic={topic}
         display={display}
         setDisplay={setDisplay}
         searchParams={searchParams}
+        setIsLoading={setIsLoading}
       />
     </section>
   );

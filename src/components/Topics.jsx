@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import { useNavigate } from "react-router-dom";
 
-export default function Topics({ topic, display, setDisplay, searchParams }) {
+export default function Topics({
+  topic,
+  display,
+  setDisplay,
+  searchParams,
+  setIsLoading,
+}) {
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
@@ -14,6 +20,7 @@ export default function Topics({ topic, display, setDisplay, searchParams }) {
 
   function selectTopic(e, slug) {
     e.preventDefault();
+    setIsLoading(true);
     setDisplay(null);
     const path = slug ? `/topics/${slug}?${searchParams}` : `/?${searchParams}`;
     navigate(path);

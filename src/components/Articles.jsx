@@ -25,6 +25,7 @@ export default function Articles() {
         topic={topic}
         searchParams={searchParams}
         setSearchParams={setSearchParams}
+        setIsLoading={setIsLoading}
       />
       {isLoading ? (
         <div className="element-wrapper">
