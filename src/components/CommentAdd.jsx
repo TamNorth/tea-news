@@ -15,7 +15,8 @@ export default function CommentAdd({ article_id }) {
     e.preventDefault();
     setIsPosting(true);
     if (!user) {
-      setError("login");
+      setIsPosting(false);
+      return setError("login");
     }
     postComment({ article_id, username: user.username, body: commentInput })
       .then((newComment) => {
@@ -50,12 +51,14 @@ export default function CommentAdd({ article_id }) {
           value={commentInput}
         ></input>
         {isPosting ? (
-          <span>Working...</span>
+          <button type="button" className="highlight-3">
+            Working...
+          </button>
         ) : (
           <button className="highlight-1">Comment</button>
         )}
+        {error ? <ErrorMessage err={error} /> : <></>}
       </form>
-      {error ? <ErrorMessage err={error} /> : <></>}
       {newComments.map((comment) => {
         return <CommentCard key={comment.comment_id} comment={comment} />;
       })}

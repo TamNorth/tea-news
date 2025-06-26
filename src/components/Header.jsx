@@ -36,7 +36,7 @@ export default function Header() {
         <div className="hor-stretch"></div>
         <button id="user-menu-button" onClick={toggleUserMenu}>
           <img
-            src={user.avatar_url}
+            src={user ? user.avatar_url : placeholder}
             className="profile-pic"
             alt="profile picture"
           />

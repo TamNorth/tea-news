@@ -1,6 +1,4 @@
 function makeFetch(path, options = undefined) {
-  // console.log(`${baseUrl}${path}`);
-  // console.log(options);
   const baseUrl = "https://nc-news-gwte.onrender.com/api/";
   return fetch(`${baseUrl}${path}`, options)
     .then((res) => {
@@ -66,5 +64,20 @@ export function getUsers() {
   const path = `users`;
   return makeFetch(path).then(({ users }) => {
     return users;
+  });
+}
+
+export function deleteComment(comment_id) {
+  const path = `comments/${comment_id}`;
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return makeFetch(path, options).then((res = null) => {
+    if (res) {
+      throw { status: 500 };
+    }
   });
 }

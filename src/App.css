@@ -117,6 +117,7 @@ header > button {
 
 #user-menu-button {
   align-self: right;
+  height: 2.5rem;
 }
 
 #menu-icon {
@@ -146,7 +147,7 @@ header > button {
 
 .profile-pic {
   aspect-ratio: 1/1;
-  height: 2rem;
+  height: 3rem;
   border-radius: 1rem;
   margin-right: 1rem;
 }
@@ -260,22 +261,22 @@ header > button {
   text-justify: inter-word;
 }
 
-.post-container-article > .voting-panel-article {
+.post-container-article > .voting-panel-article,
+.post-container-comment > .voting-panel-comment {
   grid-row: 4 / span 1;
   grid-column: 1 / span 1;
 }
 
-.post-container-comment > .voting-panel-comment {
-  grid-row: 4 / span 1;
-  grid-column: 1 / span 2;
-  align-self: center;
-}
-
-.post-container-article > .comment-count {
+.post-container-article > .comment-count,
+.post-container-comment > #comment-delete {
   grid-row: 4 / span 1;
   grid-column: 2 / span 1;
   align-self: center;
   font-size: 0.85rem;
+}
+
+#comment-delete {
+  width: max-content;
 }
 
 /* GENERAL CLASSES*/
