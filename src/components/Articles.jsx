@@ -3,11 +3,14 @@ import { getArticles } from "../api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Topics from "./Topics";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [displayTopics, setDisplayTopics] = useState(false);
 
   useEffect(() => {
     getArticles().then((response) => {
@@ -21,7 +24,16 @@ export default function Articles() {
       <section id="sort-and-filter" className="element-wrapper">
         <button className="element">Sort by</button>
         <button className="element">Order</button>
-        <button className="element-highlight-1">Topic: </button>
+        <form id="topics-filter">
+          <button
+            type="button"
+            className="element-highlight-1"
+            onClick={() => setDisplayTopics(!displayTopics)}
+          >
+            {selectedTopic || "Filter by topic"}
+          </button>
+          {displayTopics ? <Topics /> : <></>}
+        </form>
       </section>
       {isLoading ? (
         <div className="element-wrapper">

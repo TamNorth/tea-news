@@ -39,14 +39,18 @@ export default function UserLogin({ userMenuDisplay, setUserMenuDisplay }) {
             </li>
           );
         })}
-        <li className="misc-sub-element">
-          <button
-            className="element-highlight-2"
-            onClick={() => userLogin("logout")}
-          >
-            Logout
-          </button>
-        </li>
+        {user ? (
+          <li className="misc-sub-element">
+            <button
+              className="element-highlight-2"
+              onClick={() => userLogin("logout")}
+            >
+              Logout
+            </button>
+          </li>
+        ) : (
+          <></>
+        )}
       </ul>
     </section>
   );

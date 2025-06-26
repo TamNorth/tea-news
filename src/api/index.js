@@ -81,3 +81,10 @@ export function deleteComment(comment_id) {
     }
   });
 }
+
+export function getTopics() {
+  const path = `topics`;
+  return makeFetch(path).then(({ topics }) => {
+    return topics;
+  });
+}
