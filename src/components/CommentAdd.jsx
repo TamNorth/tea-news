@@ -2,30 +2,34 @@ import { useContext, useState } from "react";
 import { postComment } from "../api";
 import CommentCard from "./CommentCard";
 import { UserContext } from "../contexts/User";
+import ErrorMessage from "./ErrorMessage";
 
 export default function CommentAdd({ article_id }) {
   const [newComments, setNewComments] = useState([]);
   const [isPosting, setIsPosting] = useState(false);
-  const [commentError, setCommentError] = useState(false);
+  const [error, setError] = useState(null);
   const [commentInput, setCommentInput] = useState("");
   const { user } = useContext(UserContext);
 
   function handleNewComment(e, commentInput, article_id) {
     e.preventDefault();
     setIsPosting(true);
+    if (!user) {
+      setError("login");
+    }
     postComment({ article_id, username: user.username, body: commentInput })
       .then((newComment) => {
         if (!newComment) {
-          throw { status: 400 };
+          throw { status: 500 };
         }
         setIsPosting(false);
-        setCommentError(false);
+        setError(null);
         setNewComments([newComment, ...newComments]);
         setCommentInput("");
       })
       .catch(() => {
         setIsPosting(false);
-        setCommentError(true);
+        setError(true);
       });
   }
 
@@ -51,13 +55,7 @@ export default function CommentAdd({ article_id }) {
           <button className="highlight-1">Comment</button>
         )}
       </form>
-      {commentError ? (
-        <section className="warning">
-          Something went wrong, please try again
-        </section>
-      ) : (
-        <></>
-      )}
+      {error ? <ErrorMessage err={error} /> : <></>}
       {newComments.map((comment) => {
         return <CommentCard key={comment.comment_id} comment={comment} />;
       })}
