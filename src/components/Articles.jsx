@@ -11,6 +11,7 @@ export default function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
 
   useEffect(() => {
     getArticles(topic, searchParams).then((response) => {

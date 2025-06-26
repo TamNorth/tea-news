@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Topics from "./Topics";
 import SortBy from "./SortBy";
+import Order from "./Order";
 
 export default function SortAndFilter({
   topic,
@@ -16,9 +17,11 @@ export default function SortAndFilter({
         setDisplay={setDisplay}
         setSearchParams={setSearchParams}
       />
-      {/* <form className={order ? "element-highlight-3" : "element-highlight-1"}>
-        Order
-      </form> */}
+      <Order
+        setDisplay={setDisplay}
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
       <Topics
         topic={topic}
         display={display}
