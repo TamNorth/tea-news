@@ -1,40 +1,61 @@
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Loading from "./Loading";
 import Topics from "./Topics";
+import SortBy from "./SortBy";
 
 export default function Articles() {
-  const { slug, sort } = useParams();
+  const { slug, order } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [display, setDisplay] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortingParams = {
+    date: "created_at",
+    comments: "comment_count",
+    votes: "votes",
+  };
+  const [sortingParam, setSortingParam] = useState(null);
 
   useEffect(() => {
-    getArticles(slug).then((response) => {
+    getArticles(slug, searchParams).then((response) => {
       setArticles(response);
       setIsLoading(false);
     });
-  }, [slug]);
+  }, [slug, searchParams]);
 
   return (
     <main>
       <section id="sort-and-filter" className="element-wrapper">
         <form
           id="sort-by"
-          className={sort ? "element-highlight-3" : "element-highlight-1"}
+          className={
+            searchParams ? "element-highlight-3" : "element-highlight-1"
+          }
         >
           <button
             type="button"
             onClick={() => setDisplay(display === "sort" ? null : "sort")}
           >
-            Sort by:{sort ? ` ${sort}` : ""}
+            Sort by:{sortingParam ? ` ${sortingParam}` : ""}
           </button>
-          {display === "sort" ? <SortBy setDisplay={setDisplay} /> : <></>}
+          {display === "sort" ? (
+            <SortBy
+              setDisplay={setDisplay}
+              sortingParams={sortingParams}
+              setSearchParams={setSearchParams}
+              setSortingParam={setSortingParam}
+            />
+          ) : (
+            <></>
+          )}
         </form>
-        <button className="element">Order</button>
+        <form className={order ? "element-highlight-3" : "element-highlight-1"}>
+          Order
+        </form>
         <form
           id="topics-filter"
           className={slug ? "element-highlight-3" : "element-highlight-1"}
@@ -45,7 +66,11 @@ export default function Articles() {
           >
             Filter by{slug ? `: ${slug}` : " topic"}
           </button>
-          <Topics display={display} setDisplay={setDisplay} />
+          <Topics
+            display={display}
+            setDisplay={setDisplay}
+            searchParams={searchParams}
+          />
         </form>
       </section>
       {isLoading ? (

@@ -1,3 +1,5 @@
+import { useSearchParams } from "react-router-dom";
+
 function makeFetch(path, options = undefined) {
   const baseUrl = "https://nc-news-gwte.onrender.com/api/";
   return fetch(`${baseUrl}${path}`, options)
@@ -32,11 +34,16 @@ export function getArticle(article_id) {
   });
 }
 
-export function getArticles(topicSlug = null) {
+export function getArticles(topicSlug = null, searchParams = null) {
   let path = "articles";
-  if (topicSlug) {
-    path += `?topic=${topicSlug}`;
-  }
+  let queryJoiner = "?";
+  [topicSlug ? `topic=${topicSlug}` : null, searchParams].forEach((param) => {
+    if (param) {
+      path += `${queryJoiner}${param}`;
+      queryJoiner = "&";
+    }
+  });
+  console.log(path);
   return makeFetch(path).then(({ articles }) => {
     return articles;
   });
