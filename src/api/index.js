@@ -7,9 +7,10 @@ function makeFetch(path, options = undefined) {
       return res.json();
     })
     .then((res) => {
-      // console.log(res);
+      console.log(res);
       return res;
-    });
+    })
+    .catch((err) => console.log(err));
 }
 
 export function patchArticle(article_id, vote) {
@@ -56,7 +57,18 @@ export function postComment({ article_id, username, body }) {
     },
     body: JSON.stringify({ username, body }),
   };
-  return makeFetch(path, options).then(({ comment }) => {
-    return comment;
+  return makeFetch(path, options)
+    .then(({ comment }) => {
+      return comment;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function getUsers() {
+  const path = `users`;
+  return makeFetch(path).then(({ users }) => {
+    return users;
   });
 }

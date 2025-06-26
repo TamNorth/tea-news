@@ -115,12 +115,40 @@ header > button {
   box-shadow: none;
 }
 
-#profile-button {
+#user-menu-button {
   align-self: right;
 }
 
 #menu-icon {
   stroke: var(--highlight-color-3);
+}
+
+/* USER MENU */
+
+#user-menu {
+  position: fixed;
+  top: 5.5rem;
+  right: 0.5rem;
+}
+
+#login-menu {
+}
+
+#user-card {
+  height: 2rem;
+}
+
+#user-card > button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  aspect-ratio: 1/1;
+  height: 2rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
 }
 
 /* ARTICLES */
@@ -272,7 +300,8 @@ header > button {
 .element-highlight-3,
 .highlight-1,
 .highlight-2,
-.highlight-3 {
+.highlight-3,
+#user-menu {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;

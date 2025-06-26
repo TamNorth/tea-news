@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../api";
 import CommentCard from "./CommentCard";
+import { UserContext } from "../contexts/User";
 
 export default function CommentAdd({ article_id }) {
   const [newComments, setNewComments] = useState([]);
   const [isPosting, setIsPosting] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [commentInput, setCommentInput] = useState("");
+  const { user } = useContext(UserContext);
 
   function handleNewComment(e, commentInput, article_id) {
     e.preventDefault();
     setIsPosting(true);
-    postComment({ article_id, username: "jessjelly", body: commentInput })
+    postComment({ article_id, username: user.username, body: commentInput })
       .then((newComment) => {
+        if (!newComment) {
+          throw { status: 400 };
+        }
         setIsPosting(false);
         setCommentError(false);
         setNewComments([newComment, ...newComments]);
