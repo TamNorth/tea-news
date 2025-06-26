@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import { useNavigate } from "react-router-dom";
 
-export default function Topics({ display, setDisplay, searchParams }) {
+export default function Topics({ topic, display, setDisplay, searchParams }) {
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
@@ -10,7 +10,7 @@ export default function Topics({ display, setDisplay, searchParams }) {
     getTopics().then((res) => {
       setTopics(res);
     });
-  });
+  }, []);
 
   function selectTopic(e, slug) {
     e.preventDefault();
@@ -19,21 +19,38 @@ export default function Topics({ display, setDisplay, searchParams }) {
     navigate(path);
   }
 
-  if (display === "topics") {
-    return (
-      <ul className="misc-sub-element">
-        <li>
-          <button onClick={(e) => selectTopic(e, null)}>reset</button>
-        </li>
-        {topics.map((topic) => {
-          const { slug } = topic;
-          return (
-            <li key={slug}>
-              <button onClick={(e) => selectTopic(e, slug)}>{slug}</button>
-            </li>
-          );
-        })}
-      </ul>
-    );
+  function TopicList() {
+    if (display === "topics") {
+      return (
+        <ul className="misc-sub-element">
+          <li>
+            <button onClick={(e) => selectTopic(e, null)}>reset</button>
+          </li>
+          {topics.map((topic) => {
+            const { slug } = topic;
+            return (
+              <li key={slug}>
+                <button onClick={(e) => selectTopic(e, slug)}>{slug}</button>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
   }
+
+  return (
+    <form
+      id="topics-filter"
+      className={topic ? "element-highlight-3" : "element-highlight-1"}
+    >
+      <button
+        type="button"
+        onClick={() => setDisplay(display === "topics" ? null : "topics")}
+      >
+        Filter by{topic ? `: ${topic}` : " topic"}
+      </button>
+      <TopicList />
+    </form>
+  );
 }
