@@ -32,8 +32,11 @@ export function getArticle(article_id) {
   });
 }
 
-export function getArticles() {
-  const path = "articles";
+export function getArticles(topicSlug = null) {
+  let path = "articles";
+  if (topicSlug) {
+    path += `?topic=${topicSlug}`;
+  }
   return makeFetch(path).then(({ articles }) => {
     return articles;
   });

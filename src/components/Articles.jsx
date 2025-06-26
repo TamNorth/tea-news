@@ -1,38 +1,37 @@
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import Topics from "./Topics";
 
 export default function Articles() {
+  const { slug } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const [selectedTopic, setSelectedTopic] = useState(null);
-  const [displayTopics, setDisplayTopics] = useState(false);
+  const [display, setDisplay] = useState(null);
 
   useEffect(() => {
-    getArticles().then((response) => {
+    getArticles(slug).then((response) => {
       setArticles(response);
       setIsLoading(false);
     });
-  }, []);
+  }, [slug]);
 
   return (
     <main>
       <section id="sort-and-filter" className="element-wrapper">
         <button className="element">Sort by</button>
         <button className="element">Order</button>
-        <form id="topics-filter">
+        <form id="topics-filter" className="element-highlight-1">
           <button
             type="button"
-            className="element-highlight-1"
-            onClick={() => setDisplayTopics(!displayTopics)}
+            onClick={() => setDisplay(display === "topics" ? null : "topics")}
           >
-            {selectedTopic || "Filter by topic"}
+            Filter by{slug ? `: ${slug}` : " topic"}
           </button>
-          {displayTopics ? <Topics /> : <></>}
+          {display === "topics" ? <Topics setDisplay={setDisplay} /> : <></>}
         </form>
       </section>
       {isLoading ? (

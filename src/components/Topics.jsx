@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import { useNavigate } from "react-router-dom";
 
-export default function Topics() {
+export default function Topics({ setDisplayTopics }) {
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
@@ -14,11 +14,16 @@ export default function Topics() {
 
   function selectTopic(e, slug) {
     e.preventDefault();
-    navigate(`/topics/${slug}`);
+    setDisplayTopics(false);
+    const path = slug ? `/topics/${slug}` : "/";
+    navigate(path);
   }
 
   return (
     <ul className="misc-sub-element">
+      <li>
+        <button onClick={(e) => selectTopic(e, null)}>reset</button>
+      </li>
       {topics.map((topic) => {
         const { slug } = topic;
         return (

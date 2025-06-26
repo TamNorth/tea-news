@@ -28,6 +28,9 @@
 
 main {
   width: 100%;
+  position: relative;
+  top: 4.5rem;
+  z-index: 2;
 }
 
 button:hover {
@@ -154,6 +157,14 @@ header > button {
 
 /* ARTICLES */
 
+#sort-and-filter {
+  /* position: fixed;
+  top: 5rem; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 #article-card {
   /* width: 95%; */
   /* margin: 1rem; */
@@ -168,9 +179,6 @@ header > button {
   width: 95%;
   max-width: 30rem;
   margin: 1rem auto 0 auto;
-  position: relative;
-  top: 4.5rem;
-  z-index: 2;
 }
 
 /* ARTICLE */
