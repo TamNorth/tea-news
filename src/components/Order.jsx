@@ -5,7 +5,8 @@ export default function Order({ setDisplay, searchParams, setSearchParams }) {
 
   useEffect(() => {
     const orderParam = isDescending ? "desc" : "asc";
-    setSearchParams(`?order=${orderParam}`);
+    searchParams.set("order", orderParam);
+    setSearchParams(searchParams);
   }, [isDescending]);
 
   function toggleOrdering() {

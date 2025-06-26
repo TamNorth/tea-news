@@ -15,6 +15,7 @@ export default function SortAndFilter({
       <SortBy
         display={display}
         setDisplay={setDisplay}
+        searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
       <Order

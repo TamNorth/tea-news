@@ -7,7 +7,7 @@ function makeFetch(path, options = undefined) {
       return res.json();
     })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       return res;
     })
     .catch((err) => console.log(err));
@@ -37,7 +37,13 @@ export function getArticle(article_id) {
 export function getArticles(topicSlug = null, searchParams = null) {
   let path = "articles";
   let queryJoiner = "?";
-  [topicSlug ? `topic=${topicSlug}` : null, searchParams].forEach((param) => {
+  [
+    topicSlug ? `topic=${topicSlug}` : null,
+    searchParams.get("sort_by")
+      ? `sort_by=${searchParams.get("sort_by")}`
+      : null,
+    searchParams.get("order") ? `order=${searchParams.get("order")}` : null,
+  ].forEach((param) => {
     if (param) {
       path += `${queryJoiner}${param}`;
       queryJoiner = "&";

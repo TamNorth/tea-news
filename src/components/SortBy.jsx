@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function SortBy({ display, setDisplay, setSearchParams }) {
-  const [sortingParam, setSortingParam] = useState(null);
+export default function SortBy({
+  display,
+  setDisplay,
+  searchParams,
+  setSearchParams,
+}) {
+  const [sortingParam, setSortingParam] = useState("date");
   const sortingParams = {
     date: "created_at",
     comments: "comment_count",
@@ -13,8 +18,9 @@ export default function SortBy({ display, setDisplay, setSearchParams }) {
     e.preventDefault();
     setDisplay(null);
     setSortingParam(sortingParam);
-    const query = sortingParams[sortingParam];
-    setSearchParams(`?sort_by=${query}`);
+    const sortingQuery = sortingParams[sortingParam];
+    searchParams.set("sort_by", sortingQuery);
+    setSearchParams(searchParams);
   }
 
   function SortByList() {
