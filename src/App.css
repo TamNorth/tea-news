@@ -165,6 +165,11 @@ header > button {
   justify-content: center;
 }
 
+#sort-and-filter > form > button,
+#sort-and-filter > form > ul > li > button {
+  color: inherit;
+}
+
 #article-card {
   /* width: 95%; */
   /* margin: 1rem; */

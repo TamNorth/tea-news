@@ -6,7 +6,7 @@ import Loading from "./Loading";
 import Topics from "./Topics";
 
 export default function Articles() {
-  const { slug } = useParams();
+  const { slug, sort } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -22,16 +22,30 @@ export default function Articles() {
   return (
     <main>
       <section id="sort-and-filter" className="element-wrapper">
-        <button className="element">Sort by</button>
+        <form
+          id="sort-by"
+          className={sort ? "element-highlight-3" : "element-highlight-1"}
+        >
+          <button
+            type="button"
+            onClick={() => setDisplay(display === "sort" ? null : "sort")}
+          >
+            Sort by:{sort ? ` ${sort}` : ""}
+          </button>
+          {display === "sort" ? <SortBy setDisplay={setDisplay} /> : <></>}
+        </form>
         <button className="element">Order</button>
-        <form id="topics-filter" className="element-highlight-1">
+        <form
+          id="topics-filter"
+          className={slug ? "element-highlight-3" : "element-highlight-1"}
+        >
           <button
             type="button"
             onClick={() => setDisplay(display === "topics" ? null : "topics")}
           >
             Filter by{slug ? `: ${slug}` : " topic"}
           </button>
-          {display === "topics" ? <Topics setDisplay={setDisplay} /> : <></>}
+          <Topics display={display} setDisplay={setDisplay} />
         </form>
       </section>
       {isLoading ? (

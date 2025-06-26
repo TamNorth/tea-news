@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import { useNavigate } from "react-router-dom";
 
-export default function Topics({ setDisplay }) {
+export default function Topics({ display, setDisplay }) {
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
@@ -19,19 +19,21 @@ export default function Topics({ setDisplay }) {
     navigate(path);
   }
 
-  return (
-    <ul className="misc-sub-element">
-      <li>
-        <button onClick={(e) => selectTopic(e, null)}>reset</button>
-      </li>
-      {topics.map((topic) => {
-        const { slug } = topic;
-        return (
-          <li key={slug}>
-            <button onClick={(e) => selectTopic(e, slug)}>{slug}</button>
-          </li>
-        );
-      })}
-    </ul>
-  );
+  if (display === "topics") {
+    return (
+      <ul className="misc-sub-element">
+        <li>
+          <button onClick={(e) => selectTopic(e, null)}>reset</button>
+        </li>
+        {topics.map((topic) => {
+          const { slug } = topic;
+          return (
+            <li key={slug}>
+              <button onClick={(e) => selectTopic(e, slug)}>{slug}</button>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
 }
