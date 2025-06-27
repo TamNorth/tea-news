@@ -8,18 +8,16 @@ export default function SortBy({
   setSearchParams,
   setIsLoading,
 }) {
-  const [sortingParam, setSortingParam] = useState(
-    searchParams.get("sort_by") !== "undefined"
+  function getDefaultSortingParam() {
+    return searchParams.get("sort_by") !== "undefined"
       ? searchParams.get("sort_by") || "date"
-      : "date"
-  );
+      : "date";
+  }
+
+  const [sortingParam, setSortingParam] = useState(getDefaultSortingParam());
 
   useEffect(() => {
-    setSortingParam(
-      searchParams.get("sort_by") !== "undefined"
-        ? searchParams.get("sort_by") || "date"
-        : "date"
-    );
+    setSortingParam(getDefaultSortingParam());
   }, [searchParams]);
 
   useEffect(() => {

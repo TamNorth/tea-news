@@ -7,7 +7,7 @@
   text-align: center;
   --page-color: #ebe5e4;
   --highlight-color-1: #aabd8c;
-  --highlight-color-2: #574f2a;
+  --highlight-color-2: #534b28;
   --highlight-color-3: #1c3a13;
   --warning-color: #ff715b;
   background-color: var(--page-color);
@@ -218,6 +218,11 @@ header > button {
 } */
 
 /* ARTICLE */
+
+#article-page,
+#comments-section {
+  max-width: 45rem;
+}
 
 .voting-panel-article,
 .voting-panel-comment {

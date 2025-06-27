@@ -19,14 +19,14 @@ export default function Article() {
 
   return (
     <main>
-      <div className="element-wrapper">
+      <div id="article-page" className="element-wrapper">
         {isLoading ? (
           <Loading />
         ) : (
           <ArticleCard article={article} canVote={true} />
         )}
       </div>
-      <div className="element-wrapper">
+      <div id="comments-section" className="element-wrapper">
         <Comments article_id={article_id} />
       </div>
     </main>
