@@ -3,7 +3,7 @@ import { postComment } from "../api";
 import CommentCard from "./CommentCard";
 import { UserContext } from "../contexts/User";
 import ErrorMessage from "./ErrorMessage";
-import checkValidity from "../utils";
+import { checkValidity } from "../utils";
 
 export default function CommentAdd({ article_id }) {
   const [newComments, setNewComments] = useState([]);
