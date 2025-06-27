@@ -6,7 +6,13 @@ export default function Order({
   setSearchParams,
   setIsLoading,
 }) {
-  const [isDescending, setIsDescending] = useState(true);
+  const [isDescending, setIsDescending] = useState(
+    searchParams.get("order") === "asc" ? false : true
+  );
+
+  useEffect(() => {
+    setIsDescending(searchParams.get("order") === "asc" ? false : true);
+  }, [searchParams]);
 
   useEffect(() => {
     const orderParam = isDescending ? "desc" : "asc";

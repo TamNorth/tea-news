@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { paramsLookup } from "../api";
 
 export default function SortBy({
   display,
@@ -7,31 +8,37 @@ export default function SortBy({
   setSearchParams,
   setIsLoading,
 }) {
-  const [sortingParam, setSortingParam] = useState("date");
-  const sortingParams = {
-    date: "created_at",
-    comments: "comment_count",
-    votes: "votes",
-  };
+  const [sortingParam, setSortingParam] = useState(
+    searchParams.get("sort_by") !== "undefined"
+      ? searchParams.get("sort_by") || "date"
+      : "date"
+  );
 
   useEffect(() => {
-    const sortingQuery = sortingParams[sortingParam];
-    searchParams.set("sort_by", sortingQuery);
+    setSortingParam(
+      searchParams.get("sort_by") !== "undefined"
+        ? searchParams.get("sort_by") || "date"
+        : "date"
+    );
+  }, [searchParams]);
+
+  useEffect(() => {
+    searchParams.set("sort_by", sortingParam);
     setSearchParams(searchParams);
   }, [sortingParam]);
 
-  function selectSort(e, sortingParam) {
+  function selectSort(e, selectedSortingParam) {
     setIsLoading(true);
     e.preventDefault();
     setDisplay(null);
-    setSortingParam(sortingParam);
+    setSortingParam(selectedSortingParam);
   }
 
   function SortByList() {
     if (display === "sort") {
       return (
         <ul className="misc-sub-element">
-          {Object.keys(sortingParams).map((sortingParam) => {
+          {Object.keys(paramsLookup).map((sortingParam) => {
             return (
               <li key={sortingParam}>
                 <button onClick={(e) => selectSort(e, sortingParam)}>

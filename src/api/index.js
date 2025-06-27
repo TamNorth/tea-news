@@ -1,5 +1,11 @@
 import { useSearchParams } from "react-router-dom";
 
+export const paramsLookup = {
+  date: "created_at",
+  comments: "comment_count",
+  votes: "votes",
+};
+
 function makeFetch(path, options = undefined) {
   const baseUrl = "https://nc-news-gwte.onrender.com/api/";
   return fetch(`${baseUrl}${path}`, options)
@@ -34,24 +40,34 @@ export function getArticle(article_id) {
   });
 }
 
-export function getArticles(topicSlug = null, searchParams = null) {
+export function getArticles(topicSlug = null, searchParams) {
   let path = "articles";
   let queryJoiner = "?";
+
   const topicQuery = topicSlug ? `topic=${topicSlug}` : null;
-  const orderQuery = searchParams.get("order")
-    ? `order=${searchParams.get("order")}`
-    : null;
-  const sortByQuery = searchParams.get("sort_by")
-    ? `sort_by=${searchParams.get("sort_by")}`
+
+  const orderParam =
+    searchParams.get("order") !== "undefined"
+      ? searchParams.get("order")
+      : null;
+  const orderQuery = orderParam ? `order=${orderParam}` : null;
+
+  const sortByParam =
+    searchParams.get("sort_by") !== "undefined"
+      ? searchParams.get("sort_by")
+      : null;
+  const sortByQuery = sortByParam
+    ? `sort_by=${paramsLookup[sortByParam]}`
     : null;
 
-  [topicQuery, sortByQuery, orderQuery].forEach((query) => {
+  const queries = [topicQuery, sortByQuery, orderQuery];
+  queries.forEach((query) => {
     if (query) {
       path += `${queryJoiner}${query}`;
       queryJoiner = "&";
     }
   });
-  console.log(path);
+  // console.log(path);
   return makeFetch(path).then(({ articles }) => {
     return articles;
   });

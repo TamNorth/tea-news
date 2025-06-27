@@ -13,11 +13,12 @@ export default function Articles() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    setIsLoading(true);
     getArticles(topic, searchParams).then((response) => {
       setArticles(response);
       setIsLoading(false);
     });
-  }, [topic, searchParams]);
+  }, [topic, searchParams.get("sort_by"), searchParams.get("order")]);
 
   return (
     <main>
@@ -25,6 +26,7 @@ export default function Articles() {
         topic={topic}
         searchParams={searchParams}
         setSearchParams={setSearchParams}
+        isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
       {isLoading ? (
