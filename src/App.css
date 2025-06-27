@@ -168,6 +168,30 @@ header > button {
 #sort-and-filter > form > button,
 #sort-and-filter > form > ul > li > button {
   color: inherit;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+#sort-and-filter > form > ul > li {
+  width: 100%;
+}
+
+#sort-and-filter > form > ul > li > button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(255, 255, 255, 0.35) 0 0 2px 2px;
+}
+
+#sort-and-filter > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sort-and-filter > form > ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 1rem 0 0.5rem 0;
 }
 
 #article-card {
@@ -185,6 +209,13 @@ header > button {
   max-width: 30rem;
   margin: 1rem auto 0 auto;
 }
+
+/* .sort-and-filter-list {
+  list-style-type: none;
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem;
+  padding-top: 1rem;
+} */
 
 /* ARTICLE */
 
@@ -332,9 +363,13 @@ header > button {
 .post-container-comment,
 .misc-sub-element {
   list-style-type: none;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   margin: 0 0.5rem;
   padding: 0.5rem;
+}
+
+.post-container-comment:not(:last-child),
+.misc-sub-element:not(:last-child) {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 12px 10px -10px;
 }
 
 .element-highlight-1,

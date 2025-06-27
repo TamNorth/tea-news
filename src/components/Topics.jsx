@@ -29,7 +29,7 @@ export default function Topics({
   function TopicList() {
     if (display === "topics") {
       return (
-        <ul className="misc-sub-element">
+        <ul className="sort-and-filter-list">
           <li>
             <button onClick={(e) => selectTopic(e, null)}>reset</button>
           </li>
