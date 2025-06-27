@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { capitalise, getTimestampValues } from "../utils";
 import VotePanel from "./VotePanel";
+import ErrorCard from "./ErrorCard";
 
 export default function ArticleCard({ article, canVote }) {
+  const [error, setError] = useState(article ? null : "404");
+
+  if (error) {
+    return <ErrorCard status={error} />;
+  }
+
   const {
     article_id,
     article_img_url,

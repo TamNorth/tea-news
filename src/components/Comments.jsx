@@ -17,17 +17,21 @@ export default function Comments({ article_id }) {
 
   if (isLoading) {
     return <Loading />;
-  } else {
-    return (
-      <section id="comments" className="element">
-        <h2>Comments</h2>
-        <CommentAdd article_id={article_id} />
-        <ul>
-          {comments.map((comment) => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
-          })}
-        </ul>
-      </section>
-    );
   }
+
+  if (!comments) {
+    return;
+  }
+
+  return (
+    <section id="comments" className="element">
+      <h2>Comments</h2>
+      <CommentAdd article_id={article_id} />
+      <ul>
+        {comments.map((comment) => {
+          return <CommentCard key={comment.comment_id} comment={comment} />;
+        })}
+      </ul>
+    </section>
+  );
 }
