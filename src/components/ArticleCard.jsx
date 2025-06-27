@@ -7,7 +7,7 @@ export default function ArticleCard({ article, canVote }) {
   const [error, setError] = useState(article ? null : "404");
 
   if (error) {
-    return <ErrorCard status={error} />;
+    return <ErrorCard status={error} message={`Article doesn't exist`} />;
   }
 
   const {

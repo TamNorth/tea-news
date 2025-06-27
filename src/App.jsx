@@ -16,7 +16,12 @@ function App() {
           path="*"
           element={
             <main>
-              <ErrorCard status={404} />
+              <ErrorCard
+                status={404}
+                message={
+                  "Oops! You tried to visit a part of the site that doesn't exist."
+                }
+              />
             </main>
           }
         />

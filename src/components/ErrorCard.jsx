@@ -1,8 +1,8 @@
-export default function ErrorCard({ status }) {
+export default function ErrorCard({ status, message = null }) {
   const errMsgLookup = {
     404: "not found",
   };
-  const message = errMsgLookup[status];
+  message = message || errMsgLookup[status];
 
   return (
     <section className="element">
