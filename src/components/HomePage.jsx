@@ -4,21 +4,34 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Loading from "./Loading";
 import SortAndFilter from "./SortAndFilter";
+import ErrorCard from "./ErrorCard";
 
-export default function Articles() {
+export default function HomePage() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     getArticles(topic, searchParams).then((response) => {
+      if (!response) {
+        setError(404);
+      }
       setArticles(response);
       setIsLoading(false);
     });
   }, [topic, searchParams.get("sort_by"), searchParams.get("order")]);
+
+  if (error) {
+    return (
+      <main>
+        <ErrorCard status={error} />
+      </main>
+    );
+  }
 
   return (
     <main>

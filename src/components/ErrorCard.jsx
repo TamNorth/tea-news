@@ -4,9 +4,6 @@ export default function ErrorCard({ status }) {
   };
   const message = errMsgLookup[status];
 
-  console.log(status);
-  console.log(message);
-
   return (
     <section className="element">
       <h2>
