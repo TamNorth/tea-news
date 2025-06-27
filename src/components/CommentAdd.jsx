@@ -3,6 +3,7 @@ import { postComment } from "../api";
 import CommentCard from "./CommentCard";
 import { UserContext } from "../contexts/User";
 import ErrorMessage from "./ErrorMessage";
+import checkValidity from "../utils";
 
 export default function CommentAdd({ article_id }) {
   const [newComments, setNewComments] = useState([]);
@@ -45,8 +46,11 @@ export default function CommentAdd({ article_id }) {
           type="text"
           minLength={10}
           placeholder="Say something..."
-          onInput={(e) => {
+          onChange={(e) => {
             setCommentInput(e.target.value);
+          }}
+          onBlur={(e) => {
+            setError(checkValidity(e.target.validity));
           }}
           value={commentInput}
         ></input>
