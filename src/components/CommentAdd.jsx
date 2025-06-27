@@ -44,6 +44,7 @@ export default function CommentAdd({ article_id }) {
       >
         <input
           type="text"
+          required={true}
           minLength={10}
           placeholder="Say something..."
           onChange={(e) => {

@@ -221,6 +221,10 @@ header > button {
   margin: 0.5rem;
 }
 
+#new-comment > input:not(:placeholder-shown, :focus):invalid {
+  border: 3px solid var(--warning-color);
+}
+
 /* LOADING */
 
 #loading-img {

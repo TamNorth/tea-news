@@ -1,10 +1,11 @@
 export default function ErrorMessage({ err = null }) {
-  let errMsg = "Something went wrong, please try again";
-  if (err === "tooShort") {
-    errMsg = "comment must be longer to submit";
-  }
-  if (err === "login") {
-    errMsg = "please login to post a comment";
-  }
+  const errMsgLookup = {
+    valueMissing: "Please type something to submit",
+    tooShort: "Comment must be longer to submit",
+    login: "Please login to post a comment",
+  };
+
+  const errMsg = errMsgLookup[err] || "Something went wrong, please try again";
+
   return <section className="warning">{errMsg}</section>;
 }
