@@ -52,14 +52,15 @@
 
 ![Tuse Screen Shot](/public/images/Site_demo.png)
 
-Tea News is a mock-up news server, made in order to practice developing CRUD functionality in the back- and front-end. Features include:
+Tea News is a mock-up news server, created in order to practice developing CRUD functionality in the back- and front-end. Features include:
 
-- A homepage feed containing article cards
-- Sorting the feed by date, comment count or number of votes, in ascending or descending order
-- Filter the feed by topic
-- Vote on articles, and see the vote count change accordingly
-- Comment on articles
-- Delete comments that belong to your user account
+- A homepage feed containing article cards with some metadata
+- Options to sort the feed by date, comment count or number of votes, in ascending or descending order
+- Options to filter the feed by topic
+- Voting on articles, with instant feed-back
+- Commenting on articles
+- Deleting comments that belong to your user account
+- A responsive interface with helpful error handling
 
 Please note, some aspects of the site are placeholders or for demonstration purposes only, such as:
 
@@ -135,6 +136,11 @@ npm run dev
 - The local instance will be available on your browser at http\://localhost:5173/, by default.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+If nothing is loading, it is possible you are not receiving any data from the back-end. If you're using the default url for the back-end, two things might have happened:
+
+- The back-end is hosted on a free server at Render, and takes a while to spin-up. Give it a minute or two and see if things are loading up quicker.
+- If nothing is loading after a minute or two, it might be that the database hosted on Supabase has gone dormant - please send a message to the [author](https://github.com/TamNorth) to wake it up!
 
 ## About the Author
 
